@@ -1,0 +1,31 @@
+
+	<div class="row">			 
+		<div class="yuzuki_text">
+			<div class="text">
+			<%= image_tag'76595781.jpg', :size => '1500x300' %>	
+			</div>
+		</div>
+
+		<div class="text2">
+			<% @videos.each do |video| %>	
+				<%= link_to video_path(video.id)  do %>
+					<%= video_tag video.video_url.to_s,loop: true, controls: true, width: 450,height:305, id: "mv" %>
+				<% end %>
+			<% end %>	
+		</div>		
+	</div>
+			
+			 <%= form_for @new_video do |f| %>
+			 <div class=field>
+			     <%=f.file_field :video %>
+			
+			     <%=f.text_field :video_content %>
+			     <%= f.submit "送信" %>
+			     <% end %>
+			     <div class="text4">
+			     <%= paginate @videos %>
+			      </div>
+			</div>
+
+
+

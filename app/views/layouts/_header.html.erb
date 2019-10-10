@@ -1,0 +1,45 @@
+<div class="row">
+	<header class= "headeryuzuki">
+		<div class= "headline">
+		</div>
+		<% if user_signed_in? %>
+			<div class= "message-top"> こんにちは　<%= current_user.family_name %> さん</div>
+		<% else %>
+			<iv class= "message-top">  こんにちは　ゲスト　さん</div>
+		<% end %>
+
+	</header>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+			<div class="navbar-header">
+			<a class="navbar-brand" href="#">yuzukiTube</a>
+			</div>
+				<ul class="nav navbar-nav navbar-right">
+						<ul class= "nav navbar-nav nav-list">
+						<% if user_signed_in? %>
+						
+						<li class ="yuzukiTube"></li>
+						
+						<li class="nav-list-item-in1">
+							<%= search_form_for @q do |f| %>
+							  # Search if the name field contains...
+							  <%= f.label :video_cont %>
+							  <%= f.search_field :video_cont %>
+
+							  <%= f.submit %>
+							<% end %>
+							<%=link_to "videos", videos_path %></li>
+						 <li class="nav-list-item-in2">
+						 	<%=link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
+						 	<% else %>
+						<li class= "nav-list-item-out">
+							<%=link_to "videos", videos_path %></li>
+							<%=link_to "ログイン	",user_session_path%></li>
+						</ul>
+					<% end %>
+				</ul>
+			</div>	
+		</nav>
+ </div>
+
+					
