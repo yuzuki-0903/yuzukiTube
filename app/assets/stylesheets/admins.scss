@@ -1,3 +1,93 @@
 // Place all the styles related to the admins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+body {
+  background: #456;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.admin-login {
+  width: 400px;
+  margin: 16px auto;
+  font-size: 16px;
+}
+
+/* Reset top and bottom margins from certain elements */
+.admin-login-header,
+.admin-login p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* The triangle form is achieved by a CSS hack */
+.admin-login-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: #28d;
+}
+
+.admin-login-header {
+  background: #000000;
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.admin-login-container {
+  background: #ebebeb;
+  padding: 12px;
+}
+
+/* Every row inside .login-container is defined with p tags */
+.admin-login p {
+  padding: 12px;
+}
+
+.admin-login input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+.admin-login input[type="email"],
+.admin-login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+
+/* Text fields' focus effect */
+.admin-login input[type="email"]:focus,
+.admin-login input[type="password"]:focus {
+  border-color: #888;
+}
+
+.admin-login input[type="submit"] {
+  background: #000000;
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.admin-login input[type="submit"]:hover {
+  background: #17c;
+}
+
+/* Buttons' focus effect */
+.admin-login input[type="submit"]:focus {
+  border-color: #05a;
+}

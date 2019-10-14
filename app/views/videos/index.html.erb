@@ -6,10 +6,13 @@
 			</div>
 		</div>
 
-		<div class="text2">
+		<div class="text">
 			<% @videos.each do |video| %>	
 				<%= link_to video_path(video.id)  do %>
-					<%= video_tag video.video_url.to_s,loop: true, controls: true, width: 450,height:305, id: "mv" %>
+				<div class="rejend">
+					<%= video_tag video.video_url.to_s,loop: true, controls: true, padding: 10,width: 450,height:310, id: "mv" %></div>
+				<div class=""><%= video %>
+				</div>
 				<% end %>
 			<% end %>	
 		</div>		
@@ -27,5 +30,10 @@
 			      </div>
 			</div>
 
+
+
+			
+
+		
 
 

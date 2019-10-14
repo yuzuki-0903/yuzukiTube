@@ -11,5 +11,6 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :password, presence: true
   has_many :videos
-  
+  has_many :favorites, dependent: :destroy
+ 
 end

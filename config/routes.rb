@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 	put 'users/:id/is_quit' => 'users#is_quit'
 	# get 'user_logout' => 'de'
 	resources :favorites, only: [:create, :destory]
-	
+	get 'videos/about'
 # HTTPメソッド "URL" => 'アクション名#コントローラ名'
 
 # index, new, create, destory, update edit =>これら６つはresources

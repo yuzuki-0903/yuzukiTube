@@ -4,4 +4,8 @@ class Video < ApplicationRecord
 	belongs_to :user
 	has_many :video_categorys
 	mount_uploader :video, VideoUploader
+
+	def favorited_by?(user)
+		favorites.where(user_id: user.id).exists?
+	end
 end

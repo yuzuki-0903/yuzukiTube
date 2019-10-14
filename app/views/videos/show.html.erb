@@ -1,6 +1,22 @@
 <div class="text3">
+	<div class ="visual">
+	<%= video_tag @video.video_url.to_s,loop: true, controls: true, width: 750, heigth: 500, id: "mv" %>
+	</div>
 
-		<div class ="visual">
-		<%= video_tag @video.video_url.to_s,loop: true, controls: true, width: 750, heigth: 500, id: "mv" %>
-		</div>
+	<!-- いいね -->
+	<% if @video.favorited_by?(current_user) %>
+	  <li>
+	    <%= link_to favorites_path(@video), method: :delete do %>
+	      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+	      <%= @video.favorites %> いいね
+	    <% end %>
+	  </li>
+	<% else %>
+	  <li>
+	    <%= link_to favorites_path(params: {video_id: @video.id}), video_id: @video.id, method: :post do %>
+	      <i class="fa fa-heart-o" aria-hidden="true"></i>
+	      <%= @favorites%> いいね
+	    <% end %>
+	  </li>
+	<% end %>
 </div>
