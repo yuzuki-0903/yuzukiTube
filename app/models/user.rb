@@ -12,5 +12,5 @@ class User < ApplicationRecord
   validates :password, presence: true
   has_many :videos
   has_many :favorites, dependent: :destroy
- 
+  # scope :active,where(is_quit:false)
 end

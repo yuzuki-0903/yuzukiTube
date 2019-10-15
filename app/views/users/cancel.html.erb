@@ -1,6 +1,12 @@
 <%= form_for(@user,url: user_retire_path(current_user)) do |f| %>
 	<div class="container text-center quit">
 		<h1>退会確認</h1>
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
 		<%= f.submit '退会する' %>
 	</div>
 <% end %>
+

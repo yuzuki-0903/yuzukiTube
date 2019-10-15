@@ -18,5 +18,22 @@
 	      <%= @favorites%> いいね
 	    <% end %>
 	  </li>
-	<% end %>
+		<% end %>
+	<!-- chat -->
+		<div class="container">
+	  <h1>Chat Room</h1>
+	  <form class="form-inline" onsubmit="return false;">
+	    <div class="form-group">
+	      <input type="text" class="form-control" id="chat-input" />
+	    </div>
+	    <button id="button" class="btn btn-primary">送信</button>
+	  </form>
+	  
+	  <div id="messages">
+	    <ul class="list-group">
+	      <%= render @chat %>
+	    </ul>
+	  </div>
+	</div>
+
 </div>

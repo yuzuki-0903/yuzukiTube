@@ -27,6 +27,6 @@ end
 
     # devise_parameter_sanitizer.permit(:sign_in, keys: [:username])
     # devise_parameter_sanitizer.permit(:sign_in, keys: [:username])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :is_quit,:password])
 	end
 end

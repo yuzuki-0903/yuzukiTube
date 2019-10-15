@@ -24,10 +24,12 @@
 				  <%= f.submit %>
 				  <% end %></li>
 				<li class="nav-list-item-in2">
-					<%=link_to "about",videos_about_path %></li>
+					<%=link_to "マイページ", user_path(current_user) %></li>
 				<li class="nav-list-item-in3">
+					<%=link_to "about",videos_about_path %></li>
+				<li class="nav-list-item-in4">
 					<%=link_to "videos", videos_path %></li>
-				 <li class="nav-list-item-in4">
+				 <li class="nav-list-item-in5">
 				 	<%=link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
 				 	<% else %>
 				<li class= "nav-list-item-out1">
