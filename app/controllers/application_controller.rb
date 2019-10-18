@@ -8,7 +8,7 @@ def after_sign_in_path_for(resource)
 	when User
 		videos_path
 	when Admin
-		admins_path
+		admin_videos_path
 	end
 end
 

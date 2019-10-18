@@ -1,4 +1,6 @@
 class AdminsController < ApplicationController
-# def index
-# 	end
+def index
+	redirect_to user_path(@user)
+	end
+
 end

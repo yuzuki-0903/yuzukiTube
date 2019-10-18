@@ -1,8 +1,9 @@
 class VideosController < ApplicationController
-	before_action :authenticate_user!,only:[:index]
+	before_action :authenticate_user_or_admin, only:[:index]
+
 	PER = 9
 	def index
-		if current_user.is_quit == true
+		if current_user && current_user.is_quit == true
 			redirect_to retire_logout_path
 		end
 		 @new_video = Video.new
@@ -21,7 +22,7 @@ class VideosController < ApplicationController
 
 	def show
 	    @video = Video.find(params[:id])
-		@chat = Chat.limit(10).order('created_at desc')
+		@chat = @video.chats.limit(10).order('created_at desc')
 	end
 
 	def create
@@ -37,4 +38,12 @@ class VideosController < ApplicationController
 	   # paramsに渡してあげる。
 	   #params.require(:モデル名).permit(:カラム名)
 	end	
+
+	def authenticate_user_or_admin
+		if user_signed_in? or admin_signed_in?
+			# ok
+		else
+    		authenticate_user!
+		end
+	end
 end

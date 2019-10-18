@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 		registrations: 'admins/registrations',
 		sessions: 'admins/sessions'
 	}
+	namespace :admin do
+		resources :videos, controller: '/videos',only: [:index]
+	end
 	get 'video/categorys'
 	get '/cancel' => 'users#cancel',as: 'cancel'
 	patch 'users/:id/retire' => 'users#is_quit',as: 'user_retire'

@@ -1,34 +1,35 @@
 
-	<div class="row">			 
-		<div class="yuzuki_text">
-			<div class="text">
-			<%= image_tag'76595781.jpg', :size => '1500x300' %>	
-			</div>
-		</div>
-
+<div class="row">			 
+	<div class="yuzuki_text">
 		<div class="text">
-			<% @videos.each do |video| %>	
-				<%= link_to video_path(video.id)  do %>
-				<div class="rejend">
-					<%= video_tag video.video_url.to_s,loop: true, controls: true, padding: 10,width: 450,height:310, id: "mv" %></div>
-				<div class=""><%= video %>
-				</div>
-				<% end %>
-			<% end %>	
-		</div>		
+		<%= image_tag'76595781.jpg', :size => '1500x300' %>	
+		</div>
 	</div>
-			
-			 <%= form_for @new_video do |f| %>
-			 <div class=field>
-			     <%=f.file_field :video %>
-			
-			     <%=f.text_field :video_content %>
-			     <%= f.submit "送信" %>
-			     <% end %>
-			     <div class="text4">
-			     <%= paginate @videos %>
-			      </div>
-			</div>
+
+	<div class="text">
+		<% @videos.each do |video| %>	
+			<%= link_to video_path(video.id)  do %>
+			<div class="rejend">
+				<%= video_tag video.video_url.to_s,loop: true, controls: true, padding: 10,width: 450,height:310, id: "mv" %></div>
+				<div class="">
+					<%= video %>
+				</div>
+					<% end %>
+		        <% end %>	
+			</div>		
+	</div>
+		
+		 <%= form_for @new_video do |f| %>
+		 <div class=field>
+		     <%=f.file_field :video %>
+		     <%=f.text_field :video_content %>
+		     <%= f.submit "送信" %>
+		     <% end %>
+		     <div class="text4">
+		     <%= paginate @videos %>
+		     </div>
+		 </div>
+</div>
 
 
 

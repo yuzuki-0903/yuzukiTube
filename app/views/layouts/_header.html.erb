@@ -15,30 +15,56 @@
 		    </div>
 			<ul class="nav navbar-nav navbar-right">
 				<ul class= "nav navbar-nav nav-list">
-				
-				<% if user_signed_in? %>
-				<li class ="nav-list-item-in1"><%= search_form_for @q do |f| %>
-				  # Search if the name field contains...
-				  <%= f.label :video_cont %>
-				  <%= f.search_field :video_cont %>
-				  <%= f.submit %>
-				  <% end %></li>
-				<li class="nav-list-item-in2">
-					<%=link_to "マイページ", user_path(current_user) %></li>
-				<li class="nav-list-item-in3">
-					<%=link_to "about",videos_about_path %></li>
-				<li class="nav-list-item-in4">
-					<%=link_to "videos", videos_path %></li>
-				 <li class="nav-list-item-in5">
-				 	<%=link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
-				 	<% else %>
-				<li class= "nav-list-item-out1">
-					<%=link_to "videos", videos_path %></li>
-				<li class= "nav-list-item-out1">
-					<%=link_to "ログイン	",user_session_path%></li>
+					<% if user_signed_in? %>
+						<% if current_user.admin == true %> 
+			 				<!-- admin -->
+							<li class ="nav-list-item-in1">
+							  <%= search_form_for @q do |f| %>
+								  # Search if the name field contains...
+								  <%= f.label :video_cont %>
+								  <%= f.search_field :video_cont %>
+								  <%= f.submit %>
+							  <% end %>
+							  	
+							</li>
+							<li class="nav-list-item-in2">
+								<%=link_to "マイページ", user_path(current_user) %></li>
+							<li class="nav-list-item-in3">
+								<%=link_to "about",videos_about_path %></li>
+							<li class="nav-list-item-in4">
+								<%=link_to "videos", videos_path %></li>
+							<li class="nav-list-item-in5">
+							 	<%=link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
+						 <% else %>
+							  <li class ="nav-list-item-in1">
+							  <%= search_form_for @q do |f| %>
+								  # Search if the name field contains...
+								  <%= f.label :video_cont %>
+								  <%= f.search_field :video_cont %>
+								  <%= f.submit %>
+							  <% end %>
+							  	
+							</li>
+							<li class="nav-list-item-in2">
+								<%=link_to "マイページ", user_path(current_user) %></li>
+							<li class="nav-list-item-in3">
+								<%=link_to "about",videos_about_path %></li>
+							<li class="nav-list-item-in4">
+								<%=link_to "videos", videos_path %></li>
+							<li class="nav-list-item-in5">
+							 	<%=link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
+						 <%end %>
+
+					<% else %>
+						<li class= "nav-list-item-out1">
+							<%=link_to "videos", videos_path %></li>
+						<li class= "nav-list-item-out1">
+							<%=link_to "ログイン	",user_session_path%></li>
+					<% end %>
 				</ul>
-			   <% end %>
-			</ul>
+			 	
+
+			
 		</div>	
 	</nav>
 
