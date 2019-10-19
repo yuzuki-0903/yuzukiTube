@@ -9,13 +9,18 @@ class VideosController < ApplicationController
 		 @new_video = Video.new
 		 # @videos = Video.page(params[:page]).per(9)
 	# 	 @q = current_user.videos.ransack(params.[:q])
-		 @videos = Video.all.order('id DESC').page(params[:page]).per(9)
+		 @videos = Video.all.order('id ASC').page(params[:page]).per(9)
+		
 	end
 
 	def new
 	   
 	end
-
+	def destroy
+		@video=Video.find(params[:id])
+		@video.destroy
+		redirect_to videos_path
+	end
 	def about
 	   
 	end

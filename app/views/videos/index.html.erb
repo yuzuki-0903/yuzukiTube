@@ -2,39 +2,33 @@
 <div class="row">			 
 	<div class="yuzuki_text">
 		<div class="text">
-		<%= image_tag'76595781.jpg', :size => '1500x300' %>	
+			<%= image_tag'76595781.jpg', :size => '1500x300' %>	
 		</div>
 	</div>
-
-	<div class="text">
-		<% @videos.each do |video| %>	
-			<%= link_to video_path(video.id)  do %>
+	<div class="text">	
+		<% @videos.each do |video| %>
+		  <%= link_to video_path(video.id)  do %>
 			<div class="rejend">
-				<%= video_tag video.video_url.to_s,loop: true, controls: true, padding: 10,width: 450,height:310, id: "mv" %></div>
-				<div class="">
-					<%= video %>
-				</div>
-					<% end %>
-		        <% end %>	
-			</div>		
+			  <%= video_tag video.video_url.to_s,loop: true, controls: true, padding: 10,
+			    width: 400,height:310, id: "mv" %>
+			  <% if current_user.admin? %>
+				<%= link_to "削除", video_path(video.id), class:'btn btn-primary delete', method: :delete,
+                  data: { confirm: "本当に削除してもよろしいですか?" } %>
+				  <%= video.title %>
+				  
+			  <% end %>
+		    </div>
+		  <% end %>
+		<% end %>        
 	</div>
-		
-		 <%= form_for @new_video do |f| %>
-		 <div class=field>
-		     <%=f.file_field :video %>
-		     <%=f.text_field :video_content %>
-		     <%= f.submit "送信" %>
-		     <% end %>
-		     <div class="text4">
-		     <%= paginate @videos %>
-		     </div>
-		 </div>
+    <%= form_for @new_video do |f| %>
+      <div class=field>
+      <%=f.file_field :video %>
+	  <%=f.text_field :video_content %>
+	  <%= f.submit "送信" %>
+	  </div>
+    <% end %>
+    <div class="text4">
+      <%= paginate @videos %>	     	
+    </div>
 </div>
-
-
-
-			
-
-		
-
-

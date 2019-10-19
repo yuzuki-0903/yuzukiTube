@@ -91,3 +91,8 @@ body {
 .admin-login input[type="submit"]:focus {
   border-color: #05a;
 }
+.delete{
+  margin: -15px 0 0 0;
+  z-index: 1;
+  position: relative;
+}

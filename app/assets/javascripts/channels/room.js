@@ -13,12 +13,13 @@ document.addEventListener('turbolinks:load', function(){
     },
 
     received: function(message) {
-      $("#messages > ul").prepend(message)
-      $("#messages > ul > li:nth-child(11)").remove()
-      // Called when there's incoming data on the websocket for this channel
+      $('#messages ul').prepend(message['message'])
+      $("#messages > ul > li:nth-child(11)").remove();
+    
     },
 
     speak: function(content) {
+      console.log(content)
       return this.perform('speak', {message: content});
     }
   });

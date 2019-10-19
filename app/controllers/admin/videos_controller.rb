@@ -1,5 +1,5 @@
 class Admin::VideosController < ApplicationController
-def destory
+	def destory
 	
 	end	
 end

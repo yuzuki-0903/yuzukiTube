@@ -36,15 +36,16 @@
 							<li class="nav-list-item-in5">
 							 	<%=link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
 						 <% else %>
+							  <!-- user -->
 							  <li class ="nav-list-item-in1">
-							  <%= search_form_for @q do |f| %>
-								  # Search if the name field contains...
-								  <%= f.label :video_cont %>
-								  <%= f.search_field :video_cont %>
-								  <%= f.submit %>
-							  <% end %>
+								  <%= search_form_for @q do |f| %>
+									  # Search if the name field contains...
+									  <%= f.label :video_cont %>
+									  <%= f.search_field :video_cont %>
+									  <%= f.submit %>
+								  <% end %></li>
 							  	
-							</li>
+							
 							<li class="nav-list-item-in2">
 								<%=link_to "マイページ", user_path(current_user) %></li>
 							<li class="nav-list-item-in3">
