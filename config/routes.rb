@@ -6,13 +6,18 @@ Rails.application.routes.draw do
 		sessions: 'admins/sessions'
 	}
 	namespace :admin do
-		resources :videos, controller: 'admin/videos',only: [:index]
+		resources :videos, controller: 'admin/videos',only: [:index] do
+			resources :favorites
+		end
+	end
+
+	resources :videos,only: [:index] do
+		resources :favorites
 	end
 	get 'video/categorys'
 	get '/cancel' => 'users#cancel',as: 'cancel'
 	patch 'users/:id/retire' => 'users#is_quit',as: 'user_retire'
 	# get 'user_logout' => 'de'
-	resources :favorites, only: [:create, :destory]
 	get 'videos/about'
 # HTTPメソッド "URL" => 'アクション名#コントローラ名'
 

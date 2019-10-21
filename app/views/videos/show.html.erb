@@ -6,16 +6,18 @@
 	<!-- いいね -->
 	<% if @video.favorited_by?(current_user) %>
 	  <li>
-	    <%= link_to favorites_path(@video), method: :delete do %>
+		<% favorite = current_user.favorites.find_by(video_id: @video.id) %>
+	    <%= link_to video_favorite_path(@video.id,favorite.id), method: :delete do %>
+
 	      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-	      <%= @video.favorites %> いいね
+	      <%= @video.favorites.count %> いいね
 	    <% end %>
 	  </li>
 	<% else %>
 	  <li>
-	    <%= link_to favorites_path(params: {video_id: @video.id}), video_id: @video.id, method: :post do %>
+	    <%= link_to video_favorites_path(@video.id), method: :post do %>
 	      <i class="fa fa-heart-o" aria-hidden="true"></i>
-	      <%= @favorites%> いいね
+	      <%= @video.favorites.count %> いいね
 	    <% end %>
 	  </li>
 		<% end %>

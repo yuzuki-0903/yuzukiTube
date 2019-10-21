@@ -6,6 +6,7 @@ class Video < ApplicationRecord
 	mount_uploader :video, VideoUploader
 
 	def favorited_by?(user)
+		# binding.pry
 		favorites.where(user_id: user.id).exists?
 	end
 end

@@ -5,21 +5,43 @@
 			<%= image_tag'76595781.jpg', :size => '1500x300' %>	
 		</div>
 	</div>
+	
 	<div class="text">	
 		<% @videos.each do |video| %>
-		  <%= link_to video_path(video.id)  do %>
 			<div class="rejend">
-			  <%= video_tag video.video_url.to_s,loop: true, controls: true, padding: 10,
-			    width: 400,height:310, id: "mv" %>
-			  <% if current_user.admin? %>
-				<%= link_to "削除", video_path(video.id), class:'btn btn-primary delete', method: :delete,
-                  data: { confirm: "本当に削除してもよろしいですか?" } %>
-				  <%= video.title %>
-				  
-			  <% end %>
-		    </div>
-		  <% end %>
-		<% end %>        
+				<li>
+				  <%= link_to video_path(video.id)  do %>
+					  <%= video_tag video.video_url.to_s,loop: true, controls: true, padding: 10,
+					    width: 400,height:310, id: "mv" %>
+				
+			 	  <% end %>          
+				</li>
+
+				<li>
+				  <% if current_user.admin? %>
+					<%= link_to "削除", video_path(video.id), class:'btn btn-primary delete', method: :delete,
+	                  data: { confirm: "本当に削除してもよろしいですか?" } %>
+					  <%= video.title %>
+					
+					<!-- いいね -->
+					<% if video.favorited_by?(current_user) %>
+						<% favorite = current_user.favorites.find_by(video_id: video.id) %>
+					  <%= link_to video_favorite_path(video.id, favorite.id), method: :delete do %>
+						<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+					       <%= video.favorites.count %> いいね
+					    <% end %>
+					<% else %>
+					    <%= link_to video_favorites_path(video), method: :post do %>
+					      <i class="fa fa-heart-o" aria-hidden="true"></i>
+					      <%= video.favorites.count %> いいね
+					    <% end %>
+					<% end %>
+
+			 	 <% end %>
+	    		</li>
+			</div>
+
+		<% end %>       
 	</div>
     <%= form_for @new_video do |f| %>
       <div class=field>
