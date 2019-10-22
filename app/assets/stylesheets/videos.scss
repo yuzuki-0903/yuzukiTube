@@ -1,6 +1,4 @@
-// Place all the styles related to the videos controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
 
 /*.headeryuzuki{
 	 background: #81bcd8;
@@ -19,11 +17,10 @@
 .text{
 	width: 100%;
 }
-.text{
+.col-md-offset-1 {
 	text-align: center;
 	padding: 30px;
 	display: flex;
-	float: left;
 	flex-wrap:wrap;
 	padding-right: 15px;
 	padding-left: 15px;
@@ -42,7 +39,7 @@
 }
 .rejend{
 	margin-right: 10px;
-	width: 450px;
+	width: 300px;
 	height: 357px; 
 	display:inline-block;
 	video{
@@ -113,4 +110,13 @@ animation-delay: 32s;
 18% { opacity:1; }
 25% { opacity:0; }
 100% { opacity:0; }
+}
+.field-text{
+	width: 250px;
+	margin: 0 auto;
+	background-color:#000000;
+}
+.center-block{
+	background-color:#000000;
+
 }
