@@ -6,4 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(:family_name => '山田', :name => '太郎', :family_kana => 'ヤマダ', :first_kana => 'タロウ', :email => '4@44', :password => 'Yuzuki0903',:admin=>true)
+User.create!(:family_name => '河野', :name => '優月', :family_kana => 'こうぼ', :first_kana => 'やさしい', :email => '4@44', :password => 'Yuzuki0903',:admin=>true)
+User.create(email: '5@55', password: 'Yuzuki0903')
+User.create(email: '3@33',    password: 'Yuzuki0903')

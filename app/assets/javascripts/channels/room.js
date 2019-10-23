@@ -13,9 +13,9 @@ document.addEventListener('turbolinks:load', function(){
     },
 
     received: function(message) {
+      console.log(message)
       $('#messages ul').prepend(message['message'])
       $("#messages > ul > li:nth-child(11)").remove();
-    
     },
 
     speak: function(content) {

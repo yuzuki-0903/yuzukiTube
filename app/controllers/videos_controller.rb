@@ -9,7 +9,7 @@ class VideosController < ApplicationController
 		 @new_video = Video.new
 		 # @videos = Video.page(params[:page]).per(9)
 	# 	 @q = current_user.videos.ransack(params.[:q])
-		 @videos = Video.all.order('id ASC').page(params[:page]).per(9)
+		 @videos = Video.all.order('id DESC').page(params[:page]).per(9)
 		 @video_favorites_count = Video.joins(:favorites).group(:id).count
 	 	 @video_favorites_ids = Hash[@video_favorites_count.sort_by{|_, v| -v }].keys
 

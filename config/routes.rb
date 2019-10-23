@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 		sessions: 'admins/sessions'
 	}
 	namespace :admin do
-		resources :videos, controller: 'admin/videos',only: [:index] do
+		resources :videos, controller: 'videos',only: [:index] do
 			resources :favorites
 		end
 	end
