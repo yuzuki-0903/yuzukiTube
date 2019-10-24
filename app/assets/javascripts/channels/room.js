@@ -1,7 +1,13 @@
 
 document.addEventListener('turbolinks:load', function(){
+    if(App.room != undefined){
+      App.room.unsubscribe(); 
+    }
+    
     App.room = App.cable.subscriptions.create({ channel: 'RoomChannel', room: $('#messages').data('room_id') },{
       connected: function() {
+        this.cable = window.ActionCable.createConsumer();
+        this.cable.subscriptions.create('RoomChannel', this.sessionChannelCallback);
       console.log('connected')
       // Called when the subscription is ready for use on the server
     },
@@ -9,6 +15,7 @@ document.addEventListener('turbolinks:load', function(){
 
 
     disconnected: function() {
+      console.log('disconnected')
       // Called when the subscription has been terminated by the server
     },
 
