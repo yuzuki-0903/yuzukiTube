@@ -70,3 +70,9 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'ransack'
+
+group :production do
+
+  gem 'mysql2'
+
+end
