@@ -68,7 +68,7 @@ gem 'refile'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem 'carrierwave'
-gem 'rmagick'
+# gem 'rmagick'
 gem 'ransack'
 
 group :production do
