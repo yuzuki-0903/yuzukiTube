@@ -1,11 +1,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<body class="body-rejend">
+　<body class="body-rejend">
 		<div class="contaneir">
 			<div class="row">			 
 			　  <div class="yuzuki_text">
-					<div class="text">
+					　<div class="text">
 				    <%= image_tag'76595781.jpg', :size => '300x300' %>	
-					</div>
+					　</div>
 			    </div>
 				
 				<div class="col-md-offset-1 col-md-8">	
@@ -49,12 +49,12 @@
 					<% @video_favorites_ids.each_with_index do |lank, i| %>
 					<% lank = Video.find(lank) %>
 						<div class="col-md-12">
-				  		<p><%= "#{i+1}" %>位</p> 
-				  		<%= link_to video_path(lank.id)  do %>
-				  		<%= video_tag lank.video_url.to_s,loop: true, controls: true, padding: 10, width: 100,height:120, id: "mv" %>
-				  		<% end %>          
-				  		<br>
-				  		<%= lank.video %><br>
+			 　　　　<p><%= "#{i+1}" %>位</p> 
+			  		　<%= link_to video_path(lank.id)  do %>
+			  		　<%= video_tag lank.video_url.to_s,loop: true, controls: true, padding: 10, width: 100,height:120, id: "mv" %>
+			  		<% end %>          
+			  		<br>
+			  		<%= lank.title %><br>
 				  		<br>
 						</div>
 				  		<% if i == 4 %>
@@ -68,15 +68,15 @@
 				<div class="center-block">
 			    <%= form_for @new_video do |f| %>
 			      <div class="field-text">
-				    <%=f.file_field :video %>
-					<%=f.text_field :video_content %>
-					<%= f.submit "送信" %>
+			    　　<%=f.file_field :video %>
+				　　　<%=f.text_field :video_content %>
+				　　　<%= f.submit "送信", :class=>"btn btn-primary" %>
 				    </div>
 			    <% end %>
 			    <div class="text4">
 			    	<%= paginate @videos %>	     	
 			    </div>
-	        </div>
+	      </div>
 	  </div>
 	</body>
 
