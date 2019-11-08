@@ -16,13 +16,11 @@
 								  <%= video_tag video.video_url.to_s,loop: true, controls: true, padding: 10,width: 400,height:310, id: "mv" %>
 							 	<% end %>          
 							</li>
-
 							<li>
 								<% if user_signed_in?  %>
 								  <% if current_user.admin == true %>
 									<%= link_to "削除", video_path(video.id), class:'btn btn-primary delete', method: :delete, data: { confirm: "本当に削除してもよろしいですか?" } %>
 									<%= video.title %>
-										
 									<!-- いいね -->
 									<% if video.favorited_by?(current_user) %>
 										<% favorite = current_user.favorites.find_by(video_id: video.id) %>
